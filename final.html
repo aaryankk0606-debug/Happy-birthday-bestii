@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bakapiyo 💜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#f8ecff,#d8b4fe,#c084fc);
+overflow:hidden;
+text-align:center;
+}
+
+.box{
+padding:30px;
+background:rgba(255,255,255,.2);
+backdrop-filter:blur(18px);
+border-radius:25px;
+color:white;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+width:90%;
+max-width:400px;
+}
+
+h1{
+font-size:34px;
+margin-bottom:15px;
+animation:pop 1s infinite alternate;
+}
+
+p{
+font-size:18px;
+line-height:30px;
+}
+
+@keyframes pop{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fly 8s linear infinite;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+30%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+#musicBtn{
+display:block;
+margin:25px auto 0;
+padding:14px 28px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#c084fc,#a855f7);
+color:white;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(168,85,247,.4);
+transition:.3s;
+}
+
+#musicBtn:hover{
+transform:scale(1.05);
+}
+.gift-section{
+margin-top:30px;
+}
+
+.gift-box{
+position:relative;
+width:100px;
+height:80px;
+margin:auto;
+cursor:pointer;
+}
+
+.gift-body{
+position:absolute;
+bottom:0;
+left:0;
+width:100px;
+height:65px;
+background:#b57cff;
+border-radius:10px;
+}
+
+.lid{
+position:absolute;
+top:0;
+left:0;
+width:100px;
+height:25px;
+background:#8b5cf6;
+border-radius:10px;
+font-size:35px;
+z-index:2;
+transition:0.8s ease;
+transform-origin:left bottom;
+}
+
+.gift-box.open .lid{
+transform:translateY(-15px) rotate(-35deg);
+}
+
+#birthdayText{
+margin-top:30px;
+opacity:0;
+transform:translateY(20px);
+transition:1s;
+color:white;
+}
+
+#birthdayText.show{
+opacity:1;
+transform:translateY(0);
+}
+
+#giftHearts{
+opacity:0;
+font-size:30px;
+}
+
+#giftHearts.blast{
+opacity:1;
+animation:heartBlast 1.5s infinite;
+}
+
+@keyframes heartBlast{
+50%{
+transform:translateY(-80px) scale(1.5);
+}
+100%{
+opacity:0;
+}
+}
+/* Premium glow effect */
+.gift-box.open{
+animation: glow 1s infinite alternate;
+}
+
+@keyframes glow{
+from{
+filter:drop-shadow(0 0 5px #fff);
+}
+to{
+filter:drop-shadow(0 0 25px #c084fc);
+}
+}
+
+/* Floating sparkles */
+.sparkle{
+position:absolute;
+font-size:25px;
+animation:spark 2s ease forwards;
+}
+
+@keyframes spark{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-150px) scale(1.8);
+opacity:0;
+}
+}
+
+/* Heart pop */
+#giftHearts{
+transition:1s;
+}
+
+#giftHearts.blast{
+animation:heartPop 1.5s ease;
+}
+
+@keyframes heartPop{
+0%{
+transform:scale(0);
+}
+50%{
+transform:scale(1.8);
+}
+100%{
+transform:scale(1);
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎂 Happy Birthday In Advance 💜</h1>
+
+<h2>Bakapiyo (Nehu)</h2>
+
+<br>
+
+<p>
+
+May your smile always stay the same. 😊
+
+May all your dreams come true.
+
+Thank you for being my favourite bestie.
+
+Never change.
+
+Stay happy forever.
+
+💜🦋✨
+
+</p>
+
+<button id="musicBtn" onclick="playMusic()">
+💜 Tap to Play Our Song 🎵
+</button>
+<div class="gift-section">
+<div class="gift-box" onclick="openGift()">
+    <div class="lid">🎁</div>
+    <div class="gift-body"></div>
+</div>
+
+<h2 id="birthdayText">
+Happy Birthday in Advance Bakapiyo 💜
+</h2>
+
+<div id="giftHearts">
+💜 ✨ 💜 ✨ 💜
+</div>
+
+</div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="music/diltujaantu.mp3" type="audio/mpeg">
+</audio>
+<script>
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["💜","🦋","✨","🎈"][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(5+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},9000);
+
+},300);
+function playMusic() {
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    music.play();
+
+    btn.innerHTML = "💜 Our Song is Playing...";
+    btn.style.background = "#8b5cf6";
+
+    confetti({
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
+    });
+}
+function openGift(){
+
+document.querySelector(".gift-box").classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("birthdayText").classList.add("show");
+
+document.getElementById("giftHearts").classList.add("blast");
+
+confetti({
+particleCount:200,
+spread:150,
+origin:{y:0.5}
+});
+
+// sparkle effect
+for(let i=0;i<15;i++){
+
+let s=document.createElement("div");
+s.className="sparkle";
+s.innerHTML="✨";
+
+s.style.left=(45+Math.random()*10)+"%";
+s.style.top="50%";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+s.remove();
+},2000);
+
+}
+
+},700);
+
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+</html>
