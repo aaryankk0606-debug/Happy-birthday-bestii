@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💜</title>
+<link rel="stylesheet" href="style (1).css">
+</head>
+
+<body>
+
+<div class="gallery">
+
+<h2>✨ Our Beautiful Memories ✨</h2>
+
+<img id="slider" src="./IMAGE/IMG-20241101-WA0016.jpg">
+
+<p>Every picture tells a story... 💜</p>
+
+<button onclick="nextPage()">Continue 💌</button>
+
+</div>
+
+<script>
+const photos = [
+  "IMAGE/IMG-20241101-WA0016.jpg",
+  "IMAGE/IMG-20231022-WA0064.jpg",
+  "IMAGE/IMG-20231126-WA0023.jpg",
+  "IMAGE/IMG-20231126-WA0031.jpg",
+  "IMAGE/IMG-20240715-WA0020.jpg",
+  "IMAGE/IMG-20240715-WA0051.jpg",
+  "IMAGE/IMG-20240719-WA0048.jpg",
+  "IMAGE/IMG-20240719-WA0057.jpg",
+  "IMAGE/IMG-20240719-WA0058.jpg"
+];
+
+let i = 0;
+
+setInterval(() => {
+  i = (i + 1) % photos.length;
+  document.getElementById("slider").src = photos[i];
+}, 2500);
+
+function nextPage() {
+  window.location.href = "letter.html";
+}
+</script>
+
+</body>
+</html>
